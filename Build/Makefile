@@ -1,8 +1,8 @@
 CC = g++
 CARG = -Wall -std=c++17
 
-SRC = ../Source/main.cpp
-OBJ = obj/main.o
+SRC = ../Source/main.cpp ../Source/parser.cpp
+OBJ = obj/main.o obj/parser.o
 TAR = bin/task-cli
 
 obj/%.o: ../Source/%.cpp
