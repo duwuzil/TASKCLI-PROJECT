@@ -1,0 +1,156 @@
+# Task-CLI (C++)
+
+## Overview
+
+**Task-CLI** is a simple command-line application to track and manage your tasks. It allows you to create tasks with descriptions, view all tasks, update or delete tasks, mark tasks as **todo**, **in-progress**, or **done**, and store tasks persistently in a JSON file. This project is written in C++17 and provides a lightweight, easy-to-use interface for task management from the terminal.
+
+## Features
+
+* Add, update, and delete tasks
+* Mark tasks as **todo**, **in-progress**, or **done**
+* List tasks by status or list all tasks
+* Get total number of tasks created
+* Persistent storage in JSON format
+* Lightweight, dependency-free, pure C++17
+
+## Requirements
+
+* Linux OS (or compatible environment)
+* g++ compiler supporting C++17
+* Make
+
+## Installation / Building from Source
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd Task-CLI
+```
+
+2. Go to the Build directory:
+
+```bash
+cd Build
+```
+
+3. Compile the project using Make:
+
+```bash
+make
+```
+
+4. Run the CLI:
+
+```bash
+./task-cli help
+```
+
+> This will display all available commands and usage instructions.
+
+## Usage
+
+**Add a Task:**
+
+```bash
+task-cli add "Buy groceries"
+# Output: Task added successfully (ID: 1)
+```
+
+**Update a Task:**
+
+```bash
+task-cli update 1 "Buy groceries and cook dinner"
+# Task with ID 1 is updated
+```
+
+**Delete a Task:**
+
+```bash
+task-cli delete 1
+# Task with ID 1 is removed
+```
+
+**Mark Task Status:**
+
+```bash
+task-cli mark todo 2
+task-cli mark in-progress 3
+task-cli mark done 4
+```
+
+**List Tasks:**
+
+```bash
+task-cli list all
+task-cli list todo
+task-cli list in-progress
+task-cli list done
+```
+
+**Get Number of Tasks:**
+
+```bash
+task-cli num
+# Output: Total tasks created: X
+```
+
+## JSON Storage Format
+
+Tasks are stored in `Source/data/tasks.json` in the following format:
+
+```json
+[
+  {
+    "id": 1,
+    "description": "Buy groceries",
+    "status": "todo",
+    "createdAt": "2025-10-22 21:00:00",
+    "updatedAt": "2025-10-22 21:00:00"
+  },
+  {
+    "id": 2,
+    "description": "Finish homework",
+    "status": "in-progress",
+    "createdAt": "2025-10-22 21:05:00",
+    "updatedAt": "2025-10-22 21:10:00"
+  }
+]
+```
+
+* `id` → unique identifier
+* `description` → task text
+* `status` → `todo`, `in-progress`, or `done`
+* `createdAt` → creation timestamp
+* `updatedAt` → last update timestamp
+
+## Repository Structure
+
+```
+Task-CLI/
+├─ Build/          # Compiled executable and Makefile
+├─ Docs/           # Documentation files (README, architecture, diagrams)
+├─ Source/         # Source code (headers and cpp files)
+│   └─ data/       # JSON storage for tasks
+└─ README.md       # This file
+```
+
+## Contributing
+
+Contributions are welcome!
+
+* Fork the repository
+* Make your changes
+* Submit a pull request
+
+Please ensure your code follows C++17 standards and uses `-Wall -Wextra` flags for warnings.
+
+## License
+
+[MIT License](LICENSE) (or choose another license)
+
+This project is free to use, modify, and distribute.
+
+## Contact / Support
+
+For questions or support, please open an issue on the repository or contact the author directly.
