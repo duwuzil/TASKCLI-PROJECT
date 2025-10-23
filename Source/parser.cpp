@@ -22,8 +22,8 @@ int argparser(int argcount, char* arg[]) {
     
     } else if(cmd == "mark") {
         if(argcount < 4) return 1;
-        std::string id(arg[2]);
-        std::string status(arg[3]);
+        std::string status(arg[2]);
+        std::string id(arg[3]);
         if(status=="done"){
             jsParser(id, "", status, 4);
         } else if(status=="todo"){
