@@ -1,19 +1,16 @@
 #include <iostream>
 #include "parser.h"
+#include "jsonParser.h"
 
-int main(int argc, char* argv[])
-{
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " COMMAND" << std::endl;
-        return 1;
+int main(int argc, char* argv[]) {
+    loadJson(); // charger le JSON au démarrage
+
+    int ret = argparser(argc, argv);
+    if(ret != 0) {
+        std::cout << "Error: invalid command or missing parameters." << std::endl;
+    } else {
+        std::cout << "Task added successfully." << std::endl;
     }
-    int rep = argparser(argc, argv);
-    switch (rep){
-        case 1:
-        std::cout << "ADD LU" << std::endl;
-        break;
-        default:
-        std::cout << "commande non éxistente" << std::endl;
-    }
+
     return 0;
 }

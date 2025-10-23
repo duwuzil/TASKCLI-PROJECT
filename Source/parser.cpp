@@ -1,30 +1,16 @@
 #include "parser.h"
 #include "jsonParser.h"
 
+int argparser(int argcount, char* arg[]) {
+    if(argcount < 2) return 1; // pas de commande
 
-int argparser(int argcount, char* arg[]){
     std::string cmd(arg[1]);
-    if(cmd == "add"){
+    if(cmd == "add") {
+        if(argcount < 3) return 1; // pas de description
         std::string desc(arg[2]);
-        //send this to json parser
-        jsParser("",desc,"","",1);
-    } else if (cmd == "update"){
-        std::string ID(arg[2]);
-        std::string newdesc(arg[3]);
-        //send this to json parser
-        
-    } else if (cmd == "delete"){
-        std::string ID(arg[2]);
-        //send this to json parser
-    } else if (cmd == "mark"){
-        std::string statut(arg[2]);
-        std::string ID(arg[3]);
-        //send this to json parser
-    } else if (cmd == "list"){
-        std::string status(arg[2]);
-        //send this to json parser
+        jsParser("", desc, "todo", 1);
+    } else {
+        return 1; // commande inconnue
     }
-    else {
-        return -1;
-    }
+    return 0; // succès
 }
