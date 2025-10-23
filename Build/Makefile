@@ -1,14 +1,17 @@
 CC = g++
-CARG = -Wall -std=c++17
-SRC = Source/*
-OBJ = $(SRC:.cpp=.o)
-TAR = task-cli
+CARG = -Wall -std=c++17 -I/usr/include/jsoncpp
+SRC = ../Source/main.cpp ../Source/parser.cpp ../Source/jsonParser.cpp
+OBJ = obj/main.o obj/parser.o obj/jsonParser.o
+TAR = bin/task-cli
 
-%.o: %.cpp
+
+obj/%.o: ../Source/%.cpp
+	@mkdir -p obj
 	$(CC) $(CARG) -c $< -o $@
 
 $(TAR): $(OBJ)
-	$(CC) $(CARG) -o $(TAR) $(OBJ)
+	@mkdir -p bin
+	$(CC) $(OBJ) -o $(TAR) -ljsoncpp
 
 clean:
-	rm -f $(OBJ) $(TAR)
+	rm -f obj/* bin/*
