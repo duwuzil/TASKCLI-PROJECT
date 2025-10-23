@@ -1,6 +1,6 @@
 #include "jsonParser.h"
 #include <fstream>
-#include <jsoncpp/json/json.h>
+
 
 int x = 0;
 Json::Value task;
@@ -24,11 +24,11 @@ void saveJson() {
     fileToWrite.close();
 }
 
-// Fonction jsParser pour ADD uniquement
+
 std::string jsParser(std::string id, std::string desc, std::string status, int cd) {
-    if (cd == 1) {  // ADD
+    if (cd == 1) { 
         std::string s = std::to_string(x);
-        while (task[s]) {  // si la clé existe
+        while (task[s]) {
             x++;
             s = std::to_string(x);
         }
@@ -38,7 +38,25 @@ std::string jsParser(std::string id, std::string desc, std::string status, int c
         task[s]["updatedAt"] = "";
         saveJson();
         x = 0;
-        return s;
     }
+    else if(cd == 2) {
+        if(task[id]){
+            task[id]["desc"] = desc;
+            saveJson();
+        }
+    }else if(cd == 3) {
+        if(task[id]){
+            task.removeMember(id);
+            saveJson();
+        }
+    }
+    else if(cd == 4) {
+        if(task[id]){
+            task[id]["status"] = status;
+            task[id]["updatedAt"] = "DD/MM/AA:HH/mm";
+            saveJson();
+        }
+    }
+    //cmd 5 need to be implemented with main.cpp as it will list tasks
     return "";
 }

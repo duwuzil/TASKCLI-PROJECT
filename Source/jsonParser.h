@@ -1,8 +1,8 @@
 #ifndef JSONPARSER_H
 #define JSONPARSER_H
-
-#include <string>
 #include <jsoncpp/json/json.h>
+#include <string>
+
 
 // Variables et fonctions globales
 extern int x;
