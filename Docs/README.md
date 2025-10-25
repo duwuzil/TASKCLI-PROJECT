@@ -22,6 +22,11 @@ It is also a 🇫🇷 student project for exploring C++, so it is written in C++
 
 ## Installation / Building from Source
 
+Option 1 — Download a precompiled binary
+- Releases page: https://github.com/duwuzil/TASKCLI-PROJECT/releases
+- Download the latest release binary (example): https://github.com/duwuzil/TASKCLI-PROJECT/releases/download/v0.0.1/task-cli
+
+Option 2 — build it with cmake
 1. Clone the repository:
 
 ```bash
