@@ -88,17 +88,10 @@ task-cli mark done 4
 **List Tasks:**
 
 ```bash
-task-cli list all
+task-cli list
 task-cli list todo
 task-cli list in-progress
 task-cli list done
-```
-
-**Get Number of Tasks:**
-
-```bash
-task-cli num
-# Output: Total tasks created: X
 ```
 
 ## JSON Storage Format
