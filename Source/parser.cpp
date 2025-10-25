@@ -32,16 +32,15 @@ int argparser(int argcount, char* arg[]) {
             jsParser(id, "", status, 4);
         }
     
-    } /*else if(cmd == "list") {
-        if(argcount < 2) return 1;
+    } else if(cmd == "list") {
         if(argcount < 3){
-            //func to call at jsonParser.h
+           jsParser("","","", 5); // toutes les tâches
         } else {
-         std::string status(arg[2]);
-            //func to call at jsonParser.h
+            std::string status(arg[2]);
+            jsParser("", "", status, 6); // filtrage par status
         }
-        
-    }--> WIP */  else {
+    }
+     else {
         return 1;
     }
     return 0;

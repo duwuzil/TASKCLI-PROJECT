@@ -10,6 +10,6 @@ extern Json::Value task;
 
 void loadJson();
 void saveJson();
-std::string jsParser(std::string id = "", std::string desc = "", std::string status = "", int cd = 0);
+std::string jsParser(std::string id = "", std::string desc = "", std::string status = "", int cd = 0, int special = 0);
 
 #endif
